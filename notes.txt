@@ -1,0 +1,64 @@
+need lib-gtkmm-2.4-dev, lib-glademm-2.4-dev
+
+_Layers_
+GIU		IU
+Game	APP
+Utils	Support
+XML
+Linux	OS
+		HW
+		
+		
+_MVC_
+controller, view, model. Model and view never interact; use controller. Use facade between controller and model, and controller and view.
+
+
+_MODEL_
+player
+	selectpiece(), selectmove()
+board
+	2D array
+piece
+	king, queen, pawn, rook, knight, bishop
+	type, color
+	getMoves()- return set of locations
+XML Reader, writer
+History (list of moves)
+	move (start, end, type, piece, captured?)
+location
+Game (model facade)
+	board, history, turn
+	
+
+_CONTROL_
+Use case
+	New game
+		1. click
+		2. newgame in model
+		3. display board
+	Save game
+		1. click
+		2. file select
+		3. tell model to save
+	Load game
+		1. click
+		2. file select
+		3. tell model to load
+		4. display board
+	Move
+		click square
+			first click on a piece:
+				get moves from model
+				tell view to highlight squares
+				set SELECTED flag
+		click square
+			second time it's clicked:
+				move piece (model)
+				move piece (view)
+				clear flag
+
+STL Set needs < operator:
+const bool operator < (const Thing stuff) const{}
+
+g++ -fPIC makes position independent o file
+g++ -shared for shared library

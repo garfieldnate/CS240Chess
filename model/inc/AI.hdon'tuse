@@ -1,0 +1,17 @@
+#ifndef AI_H
+#define AI_H
+#include "Location.h"
+#include "Reference.h"
+#include "Referenceable.h"
+#include "Move.h"
+
+public class AI{
+	public:
+		//!@return a move for the given color
+		Move * getMove(Reference<Location> **, int color);
+	private:
+		
+};
+
+#endif
+

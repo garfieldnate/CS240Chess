@@ -1,0 +1,19 @@
+#include "AI.h"
+#include "Location.h"
+#include "Reference.h"
+#include "Referenceable.h"
+#include "Move.h"
+#include "ChessConstants.h"
+
+
+
+Move * AI::getMove(Reference<Location> **, int color){
+	//loop through the board for a random piece of this color;
+	//if the piece has moves
+	for(int i = 0; i < BOARD_SIZE; i++){
+		for(int j = 0; j < BOARD_SIZE; j++){
+			if(squares[i][j]->getPiece() != NULL)
+				view->PlacePiece(i, j, squares[i][j]->getPiece()->getType());
+		}
+	}
+}
